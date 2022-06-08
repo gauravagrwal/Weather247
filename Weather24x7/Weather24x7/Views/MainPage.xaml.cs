@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace Weather24x7
+namespace Weather24x7.Views
 {
     public partial class MainPage : ContentPage
     {

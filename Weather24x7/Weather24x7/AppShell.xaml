@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell
+    x:Class="Weather24x7.AppShell"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:Weather24x7.Views">
+
+    <Shell.FlyoutHeader>
+        <Label
+            Padding="25"
+            FontSize="Title"
+            Text="Weather24x7" />
+    </Shell.FlyoutHeader>
+
+    <FlyoutItem Title="Main">
+        <ShellContent ContentTemplate="{DataTemplate views:MainPage}" Route="MainPage" />
+    </FlyoutItem>
+
+    <Shell.FlyoutFooter>
+        <Label x:Name="AppCurrentVersion" HorizontalTextAlignment="Center" />
+    </Shell.FlyoutFooter>
+</Shell>
