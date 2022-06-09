@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Weather24x7.Views.WelcomePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:Weather24x7.ViewModels"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.NavBarIsVisible="False">
+
+    <ContentPage.BindingContext>
+        <vm:WelcomeViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout>
+        <StackLayout VerticalOptions="StartAndExpand" />
+        <StackLayout Padding="30,0" VerticalOptions="Center">
+            <Label
+                FontAttributes="Bold"
+                FontSize="50"
+                Text="Welcome to the Weather 24x7" />
+        </StackLayout>
+        <StackLayout VerticalOptions="End">
+            <Button
+                Margin="25,30"
+                Padding="16,15"
+                Command="{Binding GetCurrentLocationCommand}"
+                CornerRadius="30"
+                Text="Detect Current Location" />
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>

@@ -12,6 +12,10 @@
             Text="Weather24x7" />
     </Shell.FlyoutHeader>
 
+    <FlyoutItem FlyoutItemIsVisible="False">
+        <ShellContent ContentTemplate="{DataTemplate views:WelcomePage}" Route="WelcomePage" />
+    </FlyoutItem>
+
     <FlyoutItem Title="Main">
         <ShellContent ContentTemplate="{DataTemplate views:MainPage}" Route="MainPage" />
     </FlyoutItem>
