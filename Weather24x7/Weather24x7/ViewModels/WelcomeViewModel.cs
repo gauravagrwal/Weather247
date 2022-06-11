@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Weather24x7.Helpers;
 using Weather24x7.Models;
 using Weather24x7.Services;
 using Weather24x7.Views;
@@ -22,13 +23,15 @@ namespace Weather24x7.ViewModels
         public string CurrentLocation { get; set; }
         #endregion
 
-        #region Services
+        #region Helpers & Services
         private IGeoCoordsLocationService _geoCoordsLocationService;
+        private ISettingsHelper _settingsHelper;
         #endregion
 
         public WelcomeViewModel()
         {
             _geoCoordsLocationService = DependencyService.Get<IGeoCoordsLocationService>();
+            _settingsHelper = DependencyService.Get<ISettingsHelper>();
 
             GetCurrentLocationCommand = new Command(GetCurrentLocationCommandHandler);
         }
@@ -43,6 +46,7 @@ namespace Weather24x7.ViewModels
                 {
                     var placemark = await _geoCoordsLocationService.GetCurrentLocation(location.Latitude, location.Longitude);
                     await SaveLocation(location, placemark);
+                    await LoadandSaveSettings();
                     await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
                 }
             }
@@ -71,6 +75,13 @@ namespace Weather24x7.ViewModels
             listOfLocations.Add(location);
 
             await SecureStorage.SetAsync("locations", JsonConvert.SerializeObject(listOfLocations));
+        }
+        
+        private async Task LoadandSaveSettings()
+        {
+            var (endpoint, key) = _settingsHelper.LoadSettings();
+            await SecureStorage.SetAsync("weatherAPIendpoint", endpoint);
+            await SecureStorage.SetAsync("weatherAPIkey", key);
         }
         #endregion
     }

@@ -1,0 +1,4 @@
+{
+  "openWeatherAPIEndpoint": "https://api.openweathermap.org/data/2.5",
+  "openWeatherAPIKey": "api_key"
+}
