@@ -19,6 +19,9 @@
     <FlyoutItem Title="Main">
         <ShellContent ContentTemplate="{DataTemplate views:MainPage}" Route="MainPage" />
     </FlyoutItem>
+    <FlyoutItem Title="Locations">
+        <ShellContent ContentTemplate="{DataTemplate views:LocationsPage}" Route="LocationsPage" />
+    </FlyoutItem>
 
     <Shell.FlyoutFooter>
         <Label x:Name="AppCurrentVersion" HorizontalTextAlignment="Center" />

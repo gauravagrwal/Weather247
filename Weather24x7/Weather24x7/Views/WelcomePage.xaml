@@ -11,22 +11,23 @@
         <vm:WelcomeViewModel />
     </ContentPage.BindingContext>
 
-    <StackLayout>
-        <StackLayout VerticalOptions="StartAndExpand" />
-        <StackLayout Padding="30,0" VerticalOptions="Center">
-            <Label
-                FontAttributes="Bold"
-                FontSize="50"
-                Text="Welcome to the Weather 24x7" />
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout VerticalOptions="StartAndExpand" />
+            <StackLayout Padding="30,0" VerticalOptions="Center">
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="50"
+                    Text="Welcome to the Weather 24x7" />
+            </StackLayout>
+            <StackLayout VerticalOptions="End">
+                <Button
+                    Margin="25,30"
+                    Padding="16,15"
+                    Command="{Binding GetCurrentLocationCommand}"
+                    CornerRadius="30"
+                    Text="Detect Current Location" />
+            </StackLayout>
         </StackLayout>
-        <StackLayout VerticalOptions="End">
-            <Button
-                Margin="25,30"
-                Padding="16,15"
-                Command="{Binding GetCurrentLocationCommand}"
-                CornerRadius="30"
-                Text="Detect Current Location" />
-        </StackLayout>
-    </StackLayout>
-
+    </ContentPage.Content>
 </ContentPage>

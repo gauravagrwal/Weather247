@@ -7,5 +7,6 @@ namespace Weather24x7.Services
     {
         Task<Placemark> GetCurrentLocation(double latitude, double longitude);
         Task<Location> GetCurrentLocationCoordinates();
+        Task<Location> GetLocation(string location);
     }
 }

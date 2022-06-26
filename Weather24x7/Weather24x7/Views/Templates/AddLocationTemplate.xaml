@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Frame
+    x:Class="Weather24x7.Views.Templates.AddLocationTemplate"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <StackLayout>
+        <Label
+            HorizontalOptions="CenterAndExpand"
+            Text="Welcome to AddLocationTemplate!"
+            VerticalOptions="CenterAndExpand" />
+    </StackLayout>
+</Frame>

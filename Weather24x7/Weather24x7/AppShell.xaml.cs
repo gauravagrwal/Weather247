@@ -14,6 +14,7 @@ namespace Weather24x7
 
             Routing.RegisterRoute(nameof(WelcomePage), typeof(WelcomePage));
             Routing.RegisterRoute(nameof(MainPage), typeof(MainPage));
+            Routing.RegisterRoute(nameof(LocationsPage), typeof(LocationsPage));
 
             AppCurrentVersion.Text = $"version {VersionTracking.CurrentVersion}";
         }

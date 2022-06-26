@@ -65,5 +65,24 @@ namespace Weather24x7.Services
             }
             return null;
         }
+
+        public async Task<Location> GetLocation(string location)
+        {
+            try
+            {
+                var locations = await Geocoding.GetLocationsAsync(location);
+
+                var loc = locations.FirstOrDefault();
+                if (loc != null)
+                {
+                    return loc;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            return null;
+        }
     }
 }

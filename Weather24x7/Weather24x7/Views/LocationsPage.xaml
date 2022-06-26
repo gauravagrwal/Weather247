@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Weather24x7.Views.LocationsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ts="clr-namespace:Weather24x7.TemplateSelector"
+    xmlns:vm="clr-namespace:Weather24x7.ViewModels"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    Title="Locations">
+
+    <ContentPage.BindingContext>
+        <vm:LocationsViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ts:LocationTemplateSelector x:Key="LocationTemplateSelector" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid
+                xct:StateLayout.AnimateStateChanges="True"
+                xct:StateLayout.CurrentState="{Binding CurrentLayoutState}"
+                RowDefinitions="Auto, Auto, Auto, *"
+                RowSpacing="0">
+                <xct:StateLayout.StateViews>
+                    <xct:StateView StateKey="Loading" VerticalOptions="FillAndExpand" />
+                </xct:StateLayout.StateViews>
+
+                <Label
+                    Grid.Row="1"
+                    Margin="16,0,0,0"
+                    Text="Locations" />
+                <FlexLayout
+                    Grid.Row="3"
+                    Margin="16,8,16,0"
+                    AlignContent="Start"
+                    AlignItems="Start"
+                    BindableLayout.ItemTemplateSelector="{StaticResource LocationTemplateSelector}"
+                    BindableLayout.ItemsSource="{Binding Locations}"
+                    Direction="Row"
+                    JustifyContent="Start"
+                    Wrap="Wrap" />
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
